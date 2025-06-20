@@ -70,12 +70,11 @@ public class MvcConfig implements WebMvcConfigurer {
 		dataSource.setJdbcUrl(url); // ip는 바뀌어야함
 		dataSource.setUsername(username);
 		dataSource.setPassword(password);
-		
-		// 한글 인코딩 설정
 		dataSource.addDataSourceProperty("useUnicode", "true");
 		dataSource.addDataSourceProperty("characterEncoding", "UTF-8");
 		dataSource.addDataSourceProperty("serverTimezone", "Asia/Seoul");
-		
+
+		// 한글 인코딩 설정
 		return dataSource;
 	}
 

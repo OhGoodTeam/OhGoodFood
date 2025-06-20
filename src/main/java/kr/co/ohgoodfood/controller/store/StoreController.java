@@ -1,5 +1,7 @@
 package kr.co.ohgoodfood.controller.store;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import kr.co.ohgoodfood.dto.Review;
 import kr.co.ohgoodfood.dto.Store;
 import kr.co.ohgoodfood.service.store.StoreService;
 
@@ -15,29 +18,9 @@ import kr.co.ohgoodfood.service.store.StoreService;
 public class StoreController {
 
 	@Autowired
-	private StoreService Storeservice;
+	private StoreService storeService;
 
-	@GetMapping("/store/login")
-	public String login() {
-		return "store/login";
-	}
-
-	@PostMapping("/store/login")
-	public String login(HttpSession sess, Store vo, Model model) {
-		Store login = Storeservice.login(vo);
-		if (login != null) {
-			sess.setAttribute("store", login);
-			model.addAttribute("msg", "로그인 성공");
-			model.addAttribute("url", "/store/main");
-			return "store/alert";
-		} else {
-			model.addAttribute("msg", "로그인 실패");
-			model.addAttribute("url", "/store/login");
-			return "store/login";
-		}
-	}
-
-	@GetMapping
+	@GetMapping("/store/logout")
 	public String logout(HttpSession sess, Model model) {
 		sess.invalidate();
 		model.addAttribute("msg", "로그아웃 성공");
@@ -50,9 +33,25 @@ public class StoreController {
 		return "store/signup";
 	}
 
+	@GetMapping("/store/review")
+	public String getReviews(HttpSession sess, Model model) {
+		Store login = (Store) sess.getAttribute("store");
+		if (login == null) {
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/store/login");
+			return "store/alert";
+		}
+		String storeId = login.getStore_id();
+		List<Review> lists = storeService.getReviews(storeId);
+		model.addAttribute("reviews", lists);
+		
+		return "store/review";
+	}
+	/*
 	@PostMapping("/store/signup")
 	public String signup(Store vo, Model model) {
-		int res = Storeservice.insert(vo);
+		
+		int res = storeService.insert(vo);
 		String msg = "";
 		String url = "";
 		if (res > 0) {
@@ -65,7 +64,8 @@ public class StoreController {
 		model.addAttribute("msg", msg);
 		model.addAttribute("url", url);
 		return "store/alert";
-	}
+	
+	}*/
 
 	// 메인화면
 	@GetMapping("/store/main")
@@ -144,4 +144,5 @@ public class StoreController {
 		// 로그인 되어 있으면 updatemypage.jsp로
 	    return "store/updatemypage";
 	}
+
 }

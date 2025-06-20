@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=440, initial-scale=1.0">
     <title>미확정 주문내역</title>
-    <link rel="stylesheet" href="../../../css/unconfirmedorder2.css">
+    <link rel="stylesheet" href="../../../css/storeunconfirmedorder2.css">
 </head>
 
 <body>
     <div id="wrapper">
         <header>
             <div class="header-container">
-                <img src="../../../img/ohgoodfood_logo.png" alt="Logo Image">
+                <img src="../../../img/storeohgoodfood_logo.png" alt="Logo Image">
                 <div class="icon-container">
-                    <img src="../../../img/alarm_active.png" alt="알람" class="icon">
-                    <img src="../../../img/logout.png" alt="로그아웃" class="icon">
+                    <img src="../../../img/storealarm_active.png" alt="알람" class="icon">
+                    <img src="../../../img/storelogout.png" alt="로그아웃" class="icon">
                 </div>
             </div>
         </header>
@@ -27,7 +27,7 @@
                         <span class="order-desc">| 주문내역을 확인하세요</span>
                     </div>
                     <div class="order-status-dropdown">
-                        <button class="order-status-btn">미확정 주문 <img src="../../../img/arrow.png"
+                        <button class="order-status-btn">미확정 주문 <img src="../../../img/storearrow.png"
                                 class="dropdown-arrow"></button>
                         <ul class="order-status-list">
                             <li class="active">미확정 주문</li>
@@ -48,7 +48,7 @@
                         </div>
                         <hr class="order-card-divider">
                         <div class="order-card-body">
-                            <img src="../../../img/bread.png" alt="오굿백" class="order-card-img">
+                            <img src="../../../img/storebread.png" alt="오굿백" class="order-card-img">
                             <div class="order-card-info">
                                 <div class="order-card-info-person"><b>예약자 :</b> 오목킹</div>
                                 <div class="order-card-info-time"><b>픽업 시간 :</b> 18:30 ~ 19:30</div>
@@ -67,7 +67,7 @@
                         </div>
                         <hr class="order-card-divider">
                         <div class="order-card-body">
-                            <img src="../../../img/bread.png" alt="오굿백" class="order-card-img">
+                            <img src="../../../img/storebread.png" alt="오굿백" class="order-card-img">
                             <div class="order-card-info">
                                 <div class="order-card-info-person"><b>예약자 :</b> 오목킹</div>
                                 <div class="order-card-info-time"><b>픽업 시간 :</b> 18:30 ~ 19:30</div>
@@ -86,7 +86,7 @@
                         </div>
                         <hr class="order-card-divider">
                         <div class="order-card-body">
-                            <img src="../../../img/bread.png" alt="오굿백" class="order-card-img">
+                            <img src="../../../img/storebread.png" alt="오굿백" class="order-card-img">
                             <div class="order-card-info">
                                 <div class="order-card-info-person"><b>예약자 :</b> 오목킹</div>
                                 <div class="order-card-info-time"><b>픽업 시간 :</b> 18:30 ~ 19:30</div>
@@ -105,7 +105,7 @@
                         </div>
                         <hr class="order-card-divider">
                         <div class="order-card-body">
-                            <img src="../../../img/bread.png" alt="오굿백" class="order-card-img">
+                            <img src="../../../img/storebread.png" alt="오굿백" class="order-card-img">
                             <div class="order-card-info">
                                 <div class="order-card-info-person"><b>예약자 :</b> 오목킹</div>
                                 <div class="order-card-info-time"><b>픽업 시간 :</b> 18:30 ~ 19:30</div>
@@ -124,16 +124,16 @@
             <div class="footer-container">
                 <div class="menu-container">
                     <div class="menu-item">
-                        <img src="../../../img/home.png" data-name="home" alt="홈" class="menu-icon">
+                        <img src="../../../img/storehome.png" data-name="home" alt="홈" class="menu-icon">
                     </div>
                     <div class="menu-item">
-                        <img src="../../../img/review.png" data-name="review" alt="리뷰" class="menu-icon">
+                        <img src="../../../img/storereview.png" data-name="review" alt="리뷰" class="menu-icon">
                     </div>
                     <div class="menu-item">
-                        <img src="../../../img/order.png" data-name="order" alt="주문" class="menu-icon">
+                        <img src="../../../img/storeorder.png" data-name="order" alt="주문" class="menu-icon">
                     </div>
                     <div class="menu-item">
-                        <img src="../../../img/mypage.png" data-name="mypage" alt="마이페이지" class="menu-icon">
+                        <img src="../../../img/storemypage.png" data-name="mypage" alt="마이페이지" class="menu-icon">
                     </div>
                 </div>
             </div>
@@ -147,11 +147,11 @@
                 menuItems.forEach(i => {
                     i.classList.remove('active');
                     const img = i.querySelector('img');
-                    img.src = `../../../img/${img.dataset.name}.png`;
+                    img.src = `../../../img/store${img.dataset.name}.png`;
                 });
                 this.classList.add('active');
                 const img = this.querySelector('img');
-                img.src = `../../../img/${img.dataset.name}_active.png`;
+                img.src = `../../../img/store${img.dataset.name}_active.png`;
             });
         });
 
@@ -182,7 +182,7 @@
                         statusText.textContent = '취소한 주문내역';
                         statusSubText.textContent = '| 취소한 주문기록';
                     }
-                    statusBtn.innerHTML = `${this.textContent} <img src="../../../img/arrow.png" class="dropdown-arrow" alt="아래화살표">`;
+                    statusBtn.innerHTML = `${this.textContent} <img src="../../../img/storearrow.png" class="dropdown-arrow" alt="아래화살표">`;
                     statusList.classList.remove('show');
                     e.stopPropagation();
                 });

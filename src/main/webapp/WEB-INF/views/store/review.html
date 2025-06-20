@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>러프도우 리뷰</title>
-    <link rel="stylesheet" href="../../../css/review.css">
+    <link rel="stylesheet" href="../../../css/storereview.css">
 </head>
 <body>
     <div id="wrapper">
         <header>
             <div class="header-container">
-                <img src="../../../img/ohgoodfood_logo.png" alt="Logo Image">
+                <img src="../../../img/storeohgoodfood_logo.png" alt="Logo Image">
                 <div class="icon-container">
-                    <img src="../../../img/alarm_active.png" alt="알람" class="icon">
-                    <img src="../../../img/logout.png" alt="로그아웃" class="icon">
+                    <img src="../../../img/storealarm_active.png" alt="알람" class="icon">
+                    <img src="../../../img/storelogout.png" alt="로그아웃" class="icon">
                 </div>
             </div>
         </header>
@@ -23,7 +23,7 @@
                 <div class="review-subtitle">| 구매자들의 오굿백 리뷰를 확인해보세요~</div>
                 <div class="review-list">
                     <div class="review-card">
-                        <img src="../../../img/bread.png" alt="크롱" class="review-img">
+                        <img src="../../../img/storebread.png" alt="크롱" class="review-img">
                         <div class="review-content">
                             <div class="review-header">
                                 <span class="review-name">크롱</span>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="review-card">
-                        <img src="../../../img/bread2.png" alt="루피" class="review-img">
+                        <img src="../../../img/storebread2.png" alt="루피" class="review-img">
                         <div class="review-content">
                             <div class="review-header">
                                 <span class="review-name">루피</span>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="review-card">
-                        <img src="../../../img/bread.png" alt="에디" class="review-img">
+                        <img src="../../../img/storebread.png" alt="에디" class="review-img">
                         <div class="review-content">
                             <div class="review-header">
                                 <span class="review-name">에디</span>
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="review-card">
-                        <img src="../../../img/bread.png" alt="해리" class="review-img">
+                        <img src="../../../img/storebread.png" alt="해리" class="review-img">
                         <div class="review-content">
                             <div class="review-header">
                                 <span class="review-name">해리</span>
@@ -77,16 +77,16 @@
             <div class="footer-container">
                 <div class="menu-container">
                     <div class="menu-item">
-                        <img src="../../../img/home.png" data-name="home" alt="홈" class="menu-icon">
+                        <img src="../../../img/storehome.png" data-name="home" alt="홈" class="menu-icon">
                     </div>
                     <div class="menu-item">
-                        <img src="../../../img/review.png" data-name="review" alt="리뷰" class="menu-icon">
+                        <img src="../../../img/storereview.png" data-name="review" alt="리뷰" class="menu-icon">
                     </div>
                     <div class="menu-item">
-                        <img src="../../../img/order.png" data-name="order" alt="주문" class="menu-icon">
+                        <img src="../../../img/storeorder.png" data-name="order" alt="주문" class="menu-icon">
                     </div>
                     <div class="menu-item">
-                        <img src="../../../img/mypage.png" data-name="mypage" alt="마이페이지" class="menu-icon">
+                        <img src="../../../img/storemypage.png" data-name="mypage" alt="마이페이지" class="menu-icon">
                     </div>
                 </div>
             </div>
@@ -99,11 +99,11 @@
             menuItems.forEach(i => {
                 i.classList.remove('active');
                 const img = i.querySelector('img');
-                img.src = `../../../img/${img.dataset.name}.png`;
+                img.src = `../../../img/store${img.dataset.name}.png`;
             });
             this.classList.add('active');
             const img = this.querySelector('img');
-            img.src = `../../../img/${img.dataset.name}_active.png`;
+            img.src = `../../../img/store${img.dataset.name}_active.png`;
         });
     });
     </script>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.ohgoodfood.dao.CommonMapper">
+
+	<select id="loginAccount" resultType="kr.co.ohgoodfood.dto.Account">
+		SELECT * FROM Account
+		WHERE user_id=#{id}
+		AND user_pwd=#{pwd}
+	</select>
+	
+	<select id="loginStore" resultType="kr.co.ohgoodfood.dto.Store">
+		SELECT * FROM Store
+		WHERE store_id=#{id}
+		AND store_pwd=#{pwd}
+	</select>
+</mapper>

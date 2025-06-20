@@ -1,9 +1,6 @@
 package kr.co.ohgoodfood.dto;
 
-
 import java.sql.Time;
-
-
 import lombok.Data;
 
 @Data
@@ -17,7 +14,6 @@ public class Store {
     private String store_explain;
     private String store_telnumber;
     private String store_status;
-
     private Time opened_at;
     private Time closed_at;
 
