@@ -131,7 +131,8 @@
                                                 </li>
                                                 <div class="addRow">
                                                     <span class="addLabel">📍</span>
-                                                    <span class="addValue" title="${productDetail.store_address}">
+                                                    <span class="addValue address-popup"
+                                                        data-addr="${productDetail.store_address}">
                                                         ${productDetail.store_address}
                                                     </span>
                                                     <span class="addLabel">📞</span>
@@ -314,6 +315,15 @@
                                 }
                             });
                         }
+
+                        $('.address-popup').on('click', function () {
+                            const address = $(this).data('addr');
+                            window.open(
+                                '/popup/userAddress.jsp?addr=' + encodeURIComponent(address),
+                                '주소지도보기',
+                                'width=600,height=500'
+                            );
+                        });
                     });
                 </script>
             </body>
