@@ -13,6 +13,49 @@ CREATE TABLE `Account` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- ohgoodfood.Store definition
+
+CREATE TABLE `Store` (
+  `store_id` varchar(15) NOT NULL,
+  `confirmed` varchar(1) DEFAULT NULL,
+  `business_number` varchar(10) DEFAULT NULL,
+  `store_address` varchar(100) DEFAULT NULL,
+  `store_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `store_menu` varchar(30) DEFAULT NULL,
+  `store_explain` varchar(50) DEFAULT NULL,
+  `store_telnumber` varchar(20) DEFAULT NULL,
+  `store_status` varchar(1) DEFAULT NULL,
+  `opened_at` time DEFAULT NULL,
+  `closed_at` time DEFAULT NULL,
+  `store_pwd` varchar(255) DEFAULT NULL,
+  `owner_name` varchar(20) DEFAULT NULL,
+  `category_bakery` varchar(1) DEFAULT NULL,
+  `category_fruit` varchar(1) DEFAULT NULL,
+  `category_salad` varchar(1) DEFAULT NULL,
+  `category_others` varchar(1) DEFAULT NULL,
+  `latitude` decimal(15,12) DEFAULT NULL,
+  `longitude` decimal(15,12) DEFAULT NULL,
+  `join_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`store_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ohgoodfood.Product definition
+
+CREATE TABLE `Product` (
+  `product_no` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` varchar(15) NOT NULL,
+  `pickup_start` datetime DEFAULT NULL,
+  `pickup_end` datetime DEFAULT NULL,
+  `reservation_end` datetime DEFAULT NULL,
+  `origin_price` int(11) DEFAULT NULL,
+  `sale_price` int(11) DEFAULT NULL,
+  `product_explain` varchar(50) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  PRIMARY KEY (`product_no`),
+  KEY `store_id` (`store_id`),
+  CONSTRAINT `Product_ibfk_1` FOREIGN KEY (`store_id`) REFERENCES `Store` (`store_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- ohgoodfood.Admin definition
 
 CREATE TABLE `Admin` (
@@ -103,23 +146,6 @@ CREATE TABLE `Paid` (
   CONSTRAINT `FK_Paid_Orders` FOREIGN KEY (`order_no`) REFERENCES `Orders` (`order_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- ohgoodfood.Product definition
-
-CREATE TABLE `Product` (
-  `product_no` int(11) NOT NULL AUTO_INCREMENT,
-  `store_id` varchar(15) NOT NULL,
-  `pickup_start` datetime DEFAULT NULL,
-  `pickup_end` datetime DEFAULT NULL,
-  `reservation_end` datetime DEFAULT NULL,
-  `origin_price` int(11) DEFAULT NULL,
-  `sale_price` int(11) DEFAULT NULL,
-  `product_explain` varchar(50) DEFAULT NULL,
-  `amount` int(11) DEFAULT NULL,
-  PRIMARY KEY (`product_no`),
-  KEY `store_id` (`store_id`),
-  CONSTRAINT `Product_ibfk_1` FOREIGN KEY (`store_id`) REFERENCES `Store` (`store_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- ohgoodfood.Review definition
 
 CREATE TABLE `Review` (
@@ -139,29 +165,3 @@ CREATE TABLE `Review` (
   CONSTRAINT `FK_Review_Orders` FOREIGN KEY (`order_no`) REFERENCES `Orders` (`order_no`),
   CONSTRAINT `FK_Review_Store` FOREIGN KEY (`store_id`) REFERENCES `Store` (`store_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- ohgoodfood.Store definition
-
-CREATE TABLE `Store` (
-  `store_id` varchar(15) NOT NULL,
-  `confirmed` varchar(1) DEFAULT NULL,
-  `business_number` varchar(10) DEFAULT NULL,
-  `store_address` varchar(100) DEFAULT NULL,
-  `store_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `store_menu` varchar(30) DEFAULT NULL,
-  `store_explain` varchar(50) DEFAULT NULL,
-  `store_telnumber` varchar(20) DEFAULT NULL,
-  `store_status` varchar(1) DEFAULT NULL,
-  `opened_at` time DEFAULT NULL,
-  `closed_at` time DEFAULT NULL,
-  `store_pwd` varchar(255) DEFAULT NULL,
-  `owner_name` varchar(20) DEFAULT NULL,
-  `category_bakery` varchar(1) DEFAULT NULL,
-  `category_fruit` varchar(1) DEFAULT NULL,
-  `category_salad` varchar(1) DEFAULT NULL,
-  `category_others` varchar(1) DEFAULT NULL,
-  `latitude` decimal(15,12) DEFAULT NULL,
-  `longitude` decimal(15,12) DEFAULT NULL,
-  `join_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
