@@ -1,0 +1,10 @@
+FROM docker.io/library/mariadb:11.4.5
+
+MAINTAINER "CHOI GOOKHYUN<tang@dustbox.kr>"
+
+ENV MARIADB_PASSWORD ogf
+ENV MARIADB_USER ogf
+ENV MARIADB_DATABASE ogf
+ENV MARIADB_ROOT_PASSWORD ogf
+
+ADD schema.sql /docker-entrypoint-initdb.d/
